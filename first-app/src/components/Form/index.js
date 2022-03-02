@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./formstyle.sass";
-export const Form = ({ onSubmit }, { name }) => {
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
+export const Form = ({ onSubmit }) => {
   const [value, setValue] = useState("");
+  const textField = useRef();
 
   const handleChangeValue = (event) => {
     setValue(event.target.value);
@@ -13,15 +17,21 @@ export const Form = ({ onSubmit }, { name }) => {
     setValue("");
   };
 
+  useEffect(() => {
+    textField.current?.focus();
+  }, []);
+
   return (
-    <form onSubmit={handleSubmit} className="form">
-      <input
-        type="txt"
+    <form onSubmit={handleSubmit} className="form_style">
+      <TextField
+        className="myTxtField"
         value={value}
         onChange={handleChangeValue}
-        className="form__input"
+        inputRef={textField}
       />
-      <input type="submit" value={name} className="form__submit"></input>
+      <Button type="submit" className="MuiButton-root" variant="contained">
+        Send
+      </Button>
     </form>
   );
 };
