@@ -1,4 +1,4 @@
-import { Message } from "../Message/index";
+import { Message } from "../Message";
 
 export const MessageList = ({ messages }) => {
   return messages.map((message) => (

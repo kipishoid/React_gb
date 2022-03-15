@@ -24,12 +24,12 @@ export const Form = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className="form_style">
       <TextField
-        className="myTxtField"
+        className="myTxt"
         value={value}
         onChange={handleChangeValue}
         inputRef={textField}
       />
-      <Button type="submit" className="MuiButton-root" variant="contained">
+      <Button type="submit" className="Button" variant="contained">
         Send
       </Button>
     </form>
